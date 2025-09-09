@@ -2,6 +2,7 @@ import java.time.Duration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +14,8 @@ import org.openqa.selenium.WebDriver;
 import com.logwire.pages.AccueilPage;
 
 public class NavigationMenuTest {
-
-     AccueilPage accueilPage;
+    
+    AccueilPage accueilPage;
     WebDriver driver;
     String baseUrl = "https://www.maif.fr/";
     String expectedUrl;
@@ -38,28 +39,28 @@ public class NavigationMenuTest {
             driver = null;
         }
     }
-
+    @Tag("tc-001")
     @Test
     public void testNavigationParticuliers() {
         accueilPage.clickOnParticuliersMenuButton();
         expectedUrl = "https://www.maif.fr/particuliers.html";
         assert driver.getCurrentUrl().equals("https://www.maif.fr/");
     }
-
+    @Tag("tc-002")
     @Test
     public void testNavigationProfessionnels() {
         accueilPage.clickOnProfessionnelsMenuButton();
         expectedUrl = "https://www.maif.fr/professionnels";
         assert driver.getCurrentUrl().equals(expectedUrl);
     }
-
+    @Tag("tc-003")
     @Test
     public void testNavigationEnseignants() {
         accueilPage.clickOnEnseignantsMenuButton();
         expectedUrl = "https://www.maif.fr/enseignants";
         assert driver.getCurrentUrl().equals(expectedUrl);
     }
-
+    @Tag("tc-004")
     @Test
     public void testNavigationAssociationsEtCollectivites() {
         accueilPage.clickOnAssociationsEtcollictivitesMenuButton();
